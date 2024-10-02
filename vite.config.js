@@ -5,6 +5,7 @@ export default defineConfig({
     port: 2333,
   },
   build: {
+    outDir: 'build',
     lib: {
       entry: './src/main.ts',
       name: 'QRStyle',
