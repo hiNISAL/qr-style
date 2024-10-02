@@ -496,4 +496,4 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 
 ## 鸣谢
 
-本项目基于 [qr-code-styling](https://github.com/fedeci/qr-code-styling) 二次开发，后续会扩展 qr-code-styling ，提供更多码点、码眼样式、背景图片等能力。
+本项目基于 [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) 二次开发，后续会扩展 qr-code-styling ，提供更多码点、码眼样式、背景图片等能力。
