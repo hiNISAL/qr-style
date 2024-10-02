@@ -17,9 +17,22 @@ const qr = new QR({
   text: '996',
 });
 
-const canvas = qr.canvas;
+document.body.appendChild(qr.canvas);
 
-document.body.appendChild(canvas);
+qr.text = 'hi~';
+document.body.appendChild(qr.canvas);
+
+// -------------------------------------------------------------------------
+
+const qr = new QR({
+  text: 'sleep',
+  onGenerated({ canvas }) {
+    document.body.appendChild(canvas);
+  },
+});
+
+qr.text = 'dinner';
+qr.text = 'launch';
 ```
 
 ## APIs
@@ -412,7 +425,7 @@ qr.merge({
 
 #### canvas
 
-渲染二维码的canvas元素，任意属性变化，该元素的引用不会改变，会在原来的基础上覆盖新的样式。
+渲染二维码的canvas元素.
 
 ```ts
 const canvas = qr.canvas;
@@ -420,7 +433,7 @@ const canvas = qr.canvas;
 
 #### svg
 
-渲染二维吗的svg元素，任意属性变化，该元素的引用不会改变，会在原来的基础上覆盖新的样式。
+渲染二维吗的svg元素。
 
 ```ts
 const svg = qr.svg;
