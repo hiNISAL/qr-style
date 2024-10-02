@@ -1,5 +1,5 @@
 import { includes } from 'lodash';
-import type QR from './main';
+import type QR from './qr-style';
 
 // -------------------------------------------------------------------------
 

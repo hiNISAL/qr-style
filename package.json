@@ -17,14 +17,14 @@
     "package.json"
   ],
   "author": "ARAM",
-  "main": "build/qr-style.umd.js",
-  "jsnext:main": "build/qr-style.es.js",
-  "module": "build/qr-style.es.js",
-  "types": "types/main.d.ts",
+  "main": "build/qr-style.js",
+  "jsnext:main": "build/qr-style.js",
+  "module": "build/qr-style.js",
+  "types": "types/qr-style.d.ts",
   "exports": {
     ".": {
-      "import": "./build/qr-style.es.js",
-      "require": "./build/qr-style.cjs.js"
+      "import": "./build/qr-style.js",
+      "require": "./build/qr-style.js"
     }
   },
   "homepage": "https://github.com/hiNISAL/qr-style",

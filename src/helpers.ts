@@ -1,5 +1,5 @@
 import type { Options } from 'qr-code-styling';
-import type QR from './main';
+import type QR from './qr-style';
 
 export const propsToQRCodeStylingOptions = (qr: QR): Options => {
   const options: Options = {

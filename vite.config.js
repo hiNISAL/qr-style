@@ -7,10 +7,10 @@ export default defineConfig({
   build: {
     outDir: 'build',
     lib: {
-      entry: './src/main.ts',
+      entry: './src/qr-style.ts',
       name: 'QRStyle',
-      formats: ['umd', 'es', 'cjs'],
-      fileName: (format) => `qr-style.${format}.js`,
+      formats: ['umd'],
+      fileName: () => `qr-style.js`,
     },
     target: 'es2015',
   },
