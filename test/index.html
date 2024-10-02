@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./qr-style.umd.js"></script>
+  <script>
+    const qr = new QRStyle({
+      text: 'https://www.baidu.com',
+    });
+
+    document.body.appendChild(qr.canvas);
+
+    qr.backgroundOptions.color = '#000';
+  </script>
+</body>
+</html>

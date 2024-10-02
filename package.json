@@ -1,0 +1,47 @@
+{
+  "name": "qr-style",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A QR code styling library",
+  "keywords": [
+    "qrcode",
+    "qr",
+    "qr code",
+    "qr code styler",
+    "qr code logo",
+    "qr code background"
+  ],
+  "author": "ARAM",
+  "main": "dist/qr-style.umd.js",
+  "jsnext:main": "dist/qr-style.es.js",
+  "module": "dist/qr-style.es.js",
+  "types": "types/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/qr-style.es.js",
+      "require": "./dist/qr-style.cjs.js"
+    }
+  },
+  "homepage": "https://github.com/hiNISAL/qr-style",
+  "bugs": "https://github.com/hiNISAL/qr-style/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiNISAL/qr-style.git"
+  },
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build && bunx --bun tsc",
+    "preview": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/lodash": "^4.17.9",
+    "sass-embedded": "^1.79.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "qr-code-styling": "^1.6.0-rc.1"
+  }
+}
