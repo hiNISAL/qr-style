@@ -1,6 +1,5 @@
 {
   "name": "qr-style",
-  "private": true,
   "version": "1.0.0",
   "description": "A QR code styling library",
   "keywords": [
@@ -10,6 +9,12 @@
     "qr code styler",
     "qr code logo",
     "qr code background"
+  ],
+  "files": [
+    "build",
+    "types",
+    "readme.md",
+    "package.json"
   ],
   "author": "ARAM",
   "main": "build/qr-style.umd.js",
