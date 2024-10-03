@@ -1,16 +1,16 @@
 # qr-style
 
-🇨🇳 中文 | [English](https://github.com/hiNISAL/qr-style/blob/main/readme-en.md)
+[🇨🇳 中文](https://github.com/hiNISAL/qr-style) | English
 
-生成二维码、设置二维码样式。
+A QR code styling library.
 
-## 安装
+## Install
 
 ```bash
 npm install qr-style
 ```
 
-## 使用
+## Usage
 
 ```ts
 import QR from 'qr-style';
@@ -49,24 +49,24 @@ export type OnGenerated = (options: {
 }) => void;
 
 export interface QROptions {
-  // 二维码编码内容
+  // QR code content
   text: string;
-  // 二维码类型，默认 canvas
+  // QR code type, default canvas
   type?: 'canvas' | 'svg';
-  // 二维码配置，参考 toJSON 方法的返回值
+  // QR code configuration, reference to the return value of the toJSON method
   config?: Partial<QR>;
-  // 二维码生成后回调，任意配置被修改都会重新生成二维码
+  // QR code generated callback, any configuration changes will trigger re-generation
   onGenerated?: OnGenerated;
 }
 ```
 
-示例：
+example:
 
 ```ts
 const qr = new QR({
   text: '996',
   config: {
-    // 背景色相关配置
+    // Background color related configuration
     backgroundColor: {
       color: '#ff0000',
     },
@@ -79,9 +79,9 @@ const qr = new QR({
 });
 ```
 
-### 属性
+### Properties
 
-所有属性设置后会直接重新生成二维码。
+All properties set after will update QR code immediately.
 
 ```ts
 const qr = new QR({
@@ -91,7 +91,7 @@ const qr = new QR({
 
 #### text
 
-二维码编码内容
+The date will be encoded to the QR code
 
 ```ts
 qr.text = 'bar';
@@ -99,7 +99,7 @@ qr.text = 'bar';
 
 #### errorCorrectionLevel
 
-二维码错误纠正等级，可选值：
+QR code error correction level, optional values:
 
 - L
 - M
@@ -112,9 +112,9 @@ qr.errorCorrectionLevel = 'L';
 
 #### version
 
-码等级，可选值：
+QR code version, optional values:
 
-- 0-40，0 会自动计算
+- 0-40, 0 will be automatically calculated
 
 ```ts
 qr.version = 0;
@@ -122,7 +122,7 @@ qr.version = 0;
 
 #### height
 
-二维码高度
+QR code image height
 
 ```ts
 qr.height = 300;
@@ -130,7 +130,7 @@ qr.height = 300;
 
 #### width
 
-二维码宽度
+QR code image width
 
 ```ts
 qr.width = 300;
@@ -138,7 +138,7 @@ qr.width = 300;
 
 #### type
 
-生成的类型，可选值：
+Generate element type, optional values:
 
 - canvas
 - svg
@@ -149,7 +149,7 @@ qr.type = 'svg';
 
 #### mode
 
-编码类型，可选值：
+QR code encoding mode, optional values:
 
 - Numeric
 - Alphanumeric
@@ -162,41 +162,45 @@ qr.mode = 'Numeric';
 
 #### margin
 
-二维码边距
+QR code margin
 
 ```ts
 qr.margin = 10;
 ```
 
-#### image 中间图相关
+#### image options
 
 ##### image
 
-中间图URL，默认会放在正中间
+QR code image URL, will be placed in the center of the QR code by default
 
 ```ts
 qr.image = 'https://example.com/image.png';
 ```
 
-##### *imageWidth
+##### imageWidth
 
-**无效，后续实现**
+**Invalid, will be implemented later**
 
-图片宽度，暂时无效，qr-code-styling 提供的宽度是0-0.5，后续会扩展成px。
+Image width, temporarily invalid, qr-code-styling provides 0-0.5, will be expanded to px later.
+
+```ts
+qr.imageWidth = 0.5;
+```
 
 ##### imageMargin
 
-图片边距。
+Image margin
 
 ```ts
 qr.imageMargin = 10;
 ```
 
-##### *imageStyle
+##### imageStyle
 
-**无效，后续实现**
+**Invalid, will be implemented later**
 
-图片样式，可选值：
+Image style, optional values:
 
 - normal
 - circle
@@ -204,14 +208,14 @@ qr.imageMargin = 10;
 - square
 
 ```ts
-qr.imageStyle = 'rounded';
+qr.imageStyle = 'circle';
 ```
 
-##### *imageShadow
+##### imageShadow
 
-**无效，后续实现**
+**Invalid, will be implemented later**
 
-图片阴影，可选值：
+Image shadow, optional values:
 
 - none
 - l1
@@ -219,17 +223,17 @@ qr.imageStyle = 'rounded';
 - l3
 - l4
 - l5
-- `CSS box-shadow` 样式
+- `CSS box-shadow` style
 
 ```ts
 qr.imageShadow = 'l1';
 ```
 
-##### *imageShadowColor
+##### imageShadowColor
 
-**无效，后续实现**
+**Invalid, will be implemented later**
 
-图片阴影颜色
+Image shadow color
 
 ```ts
 qr.imageShadowColor = '#ff0000';
@@ -237,7 +241,7 @@ qr.imageShadowColor = '#ff0000';
 
 ##### hideBehindImageDots
 
-是否隐藏图片背后的码点
+Whether to hide the QR code points behind the image
 
 ```ts
 qr.hideBehindImageDots = true;
@@ -245,7 +249,7 @@ qr.hideBehindImageDots = true;
 
 ##### saveImageAsBase64BlobWhenTypeIsSVG
 
-二维码类型为 svg 时，是否保存为 base64 blob，nodejs环境下生效。
+Whether to save as base64 blob when type is svg, only works in nodejs environment.
 
 ```ts
 qr.saveImageAsBase64BlobWhenTypeIsSVG = true;
@@ -253,7 +257,7 @@ qr.saveImageAsBase64BlobWhenTypeIsSVG = true;
 
 ##### imageCrossOrigin
 
-图片跨域，默认 `anonymous`，可选值：
+Image cross-origin, default `anonymous`, optional values:
 
 - anonymous
 - use-credentials
@@ -264,7 +268,7 @@ qr.imageCrossOrigin = 'anonymous';
 
 #### backgroundColor
 
-二维码背景色，支持图片、渐变、纯色，参考 [ElementColor](#ElementColor)。
+QR code background color, support image, gradient, solid color, reference [ElementColor](#ElementColor).
 
 ```ts
 qr.backgroundColor.color = '#ff0000';
@@ -272,7 +276,7 @@ qr.backgroundColor.color = '#ff0000';
 
 #### dotsStyle
 
-码点样式，可选值：
+QR code dot style, optional values:
 
 - square
 - dots
@@ -287,7 +291,7 @@ qr.dotsStyle = 'classy';
 
 #### dotsColor
 
-码点颜色，参考 [ElementColor](#ElementColor)。
+QR code dot color, reference [ElementColor](#ElementColor).
 
 ```ts
 qr.dotsColor.color = '#ff0000';
@@ -295,7 +299,7 @@ qr.dotsColor.color = '#ff0000';
 
 #### cornersDotStyle
 
-码眼样式，可选值：
+QR code corner dot style, optional values:
 
 - square
 - dot
@@ -306,7 +310,7 @@ qr.cornersDotStyle = 'dot';
 
 #### cornersDotColor
 
-码眼颜色，参考 [ElementColor](#ElementColor)。
+QR code corner dot color, reference [ElementColor](#ElementColor).
 
 ```ts
 qr.cornersDotColor.color = '#ff0000';
@@ -314,7 +318,7 @@ qr.cornersDotColor.color = '#ff0000';
 
 #### cornersSquareStyle
 
-码眼样式，可选值：
+QR code corner square style, optional values:
 
 - square
 - dot
@@ -326,17 +330,17 @@ qr.cornersSquareStyle = 'square';
 
 #### cornersSquareColor
 
-码眼颜色，参考 [ElementColor](#ElementColor)。
+QR code corner square color, reference [ElementColor](#ElementColor).
 
 ```ts
 qr.cornersSquareColor.color = '#ff0000';
 ```
 
-### 方法
+### Methods
 
 #### getRawData
 
-返回二维码图片的 blob 或者 buffer(nodejs)。
+Return QR code image blob or buffer(nodejs).
 
 ```ts
 // 'png' | 'jpeg' | 'webp' | 'svg'
@@ -345,7 +349,7 @@ qr.getRawData('png');
 
 #### saveAs
 
-保存二维码图片到本地。
+Save QR code image to local.
 
 ```ts
 // 'png' | 'jpeg' | 'webp' | 'svg'
@@ -355,7 +359,7 @@ qr.saveAs('qr', 'jpeg');
 
 #### merge
 
-合并二维码配置，会覆盖当前二维码配置，并重新生成二维码。
+Merge QR code configuration, will cover current QR code configuration and trigger re-generation.
 
 ```ts
 qr.merge({
@@ -365,15 +369,15 @@ qr.merge({
 
 #### toJSON
 
-返回二维码配置，可以用于 `merge` 方法，也可以在实例化时传给 `config` 参数。
+Return QR code configuration, can be used for `merge` method, also can be passed to `config` parameter when instantiating.
 
 ```ts
-const config = qr.toJSON();
+const config =qr.toJSON();
 ```
 
 #### fromJSON
 
-从二维码配置中恢复二维码实例，和merge的作用一致，只是个别名。
+From QR code configuration to QR instance, same as `merge`.
 
 ```ts
 qr.fromJSON({
@@ -383,7 +387,9 @@ qr.fromJSON({
 
 #### waitForSetting
 
-适用于要设置一批配置的场景，过程中会暂停生成。
+will pause QR code generation process, and generate after setting.
+
+recommend use this method when you want to set multiple properties.
 
 ```ts
 // bad ways
@@ -407,17 +413,11 @@ qr.waitForSetting((qr) => {
 });
 ```
 
-也可以用merge代替
+Also can instead of `merge` method.
 
 ```ts
 qr.merge({
   text: 'foo',
-  errorCorrectionLevel: 'L',
-  version: 0,
-  height: 300,
-  width: 300,
-  type: 'svg',
-  mode: 'Numeric',
 });
 ```
 
@@ -425,7 +425,7 @@ qr.merge({
 
 #### canvas
 
-渲染二维码的canvas元素.
+Render QR code canvas element.
 
 ```ts
 const canvas = qr.canvas;
@@ -433,17 +433,17 @@ const canvas = qr.canvas;
 
 #### svg
 
-渲染二维吗的svg元素。
+Render QR code svg element.
 
 ```ts
 const svg = qr.svg;
 ```
 
-### 事件
+### Events
 
 #### onGenerated
 
-二维码生成后回调，任意配置被修改都会重新生成二维码。
+QR code generated callback, any configuration changes will trigger `onGenerated`.
 
 ```ts
 qr.onGenerated = () => {
@@ -456,12 +456,11 @@ qr.text = 'foo';
 
 ### ElementColor
 
-**图片暂不支持，后续实现**
+**Image is not supported yet, will be implemented later**
 
-用于维护颜色信息，支持渐变、纯色、图片。
+Used to maintain color information, support gradient, solid color, image.
 
 ```ts
-// 签名
 interface ElementColor {
   colorType: 'solid' | 'gradient' | 'image';
   color: string;
@@ -478,35 +477,34 @@ interface Gradient {
 }
 ```
 
-设置颜色
+Set color
 
 ```ts
 qr.backgroundColor.color = '#ff0000';
 ```
 
-设置渐变色
+Set gradient color
 
 ```ts
 qr.backgroundColor.colorType = 'gradient';
 
-qr.backgroundColor.gradient.gradientType = 'linear';
 qr.backgroundColor.gradient.gradientColor = ['#ff0000', '#00ff00'];
 qr.backgroundColor.gradient.gradientDirection = 'toRight';
 ```
 
 ## TODOs
 
-- [ ] 背景支持图片
-- [ ] 更多码眼样式
-- [ ] 更多码点样式
-- [ ] 码点支持图片
-- [ ] 支持中间图尺寸
-- [ ] 支持中间其他样式（投影、裁剪样式、图片位置等）
-- [ ] 支持添加边框
-- [ ] 支持更多层渐变色
-- [ ] 支持中间文字
-- [ ] 支持二维码旋转
+- [ ] Background support image
+- [ ] More eye styles
+- [ ] More dot styles
+- [ ] Dot support image
+- [ ] Support middle image size
+- [ ] Support middle other styles (projection, clipping style, image position, etc.)
+- [ ] Support adding border
+- [ ] Support more multi-gradient layers
+- [ ] Support middle text
+- [ ] Support QR code rotation
 
-## 鸣谢
+## Thanks
 
-本项目基于 [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) 二次开发，后续会扩展 qr-code-styling ，提供更多码点、码眼样式、背景图片等能力。
+This project is based on [qr-code-styling](https://github.com/kozakdenys/qr-code-styling).
