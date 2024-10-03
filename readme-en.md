@@ -504,6 +504,7 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 - [ ] Support more multi-gradient layers
 - [ ] Support middle text
 - [ ] Support QR code rotation
+- [ ] Support Node.js
 
 ## Thanks
 

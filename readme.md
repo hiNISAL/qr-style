@@ -506,6 +506,7 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 - [ ] 支持更多层渐变色
 - [ ] 支持中间文字
 - [ ] 支持二维码旋转
+- [ ] 完善Node.js支持
 
 ## 鸣谢
 
