@@ -1,7 +1,7 @@
 import { assign, cloneDeep } from 'lodash';
 import QRCodeStyling from "qr-code-styling";
 import { ElementColor } from "./classes/Color";
-import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRTypeNumber, QROptions, OnGenerated, Extension, QRMode } from "./type";
+import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from "./type";
 import { withProxy } from "./withProxy";
 import { propsToQRCodeStylingOptions } from "./helpers";
 
@@ -74,7 +74,7 @@ class QR {
   public errorCorrectionLevel: QRErrorCorrectionLevel = 'M';
 
   // 0-40, got 0 will auto calculate
-  public typeNumber: QRTypeNumber = 0;
+  public version: QRVersion = 0;
 
   public height: number = 300;
 
@@ -180,7 +180,7 @@ class QR {
       cornersSquareColor: this.cornersSquareColor,
       text: this.text,
       errorCorrectionLevel: this.errorCorrectionLevel,
-      typeNumber: this.typeNumber,
+      version: this.version,
       height: this.height,
       width: this.width,
       type: this.type,

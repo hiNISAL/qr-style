@@ -11,7 +11,7 @@ export const propsToQRCodeStylingOptions = (qr: QR): Options => {
     image: qr.image,
     qrOptions: {
       errorCorrectionLevel: qr.errorCorrectionLevel,
-      typeNumber: qr.typeNumber,
+      typeNumber: qr.version,
     },
     dotsOptions: {
       type: qr.dotsStyle,
