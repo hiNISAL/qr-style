@@ -212,10 +212,10 @@ class QR {
 
   // -------------------------------------------------------------------------
   constructor(options: QROptions) {
-    this.text = options.text;
+    this.text = options.text || '';
 
-    if (options.config) {
-      this.merge(options.config);
+    if (options.qrOptions) {
+      this.merge(options.qrOptions);
     }
 
     if (options.onGenerated) {
