@@ -54,7 +54,7 @@ export interface QROptions {
   // QR code type, default canvas
   type?: 'canvas' | 'svg';
   // QR code configuration, reference to the return value of the toJSON method
-  config?: Partial<QR>;
+  qrOptions?: Partial<QR>;
   // QR code generated callback, any configuration changes will trigger re-generation
   onGenerated?: OnGenerated;
 }
@@ -65,7 +65,7 @@ example:
 ```ts
 const qr = new QR({
   text: '996',
-  config: {
+  qrOptions: {
     // Background color related configuration
     backgroundColor: {
       color: '#ff0000',
@@ -369,10 +369,10 @@ qr.merge({
 
 #### toJSON
 
-Return QR code configuration, can be used for `merge` method, also can be passed to `config` parameter when instantiating.
+Return QR code configuration, can be used for `merge` method, also can be passed to `qrOptions` parameter when instantiating.
 
 ```ts
-const config =qr.toJSON();
+const qrOptions = qr.toJSON();
 ```
 
 #### fromJSON

@@ -54,7 +54,7 @@ export interface QROptions {
   // 二维码类型，默认 canvas
   type?: 'canvas' | 'svg';
   // 二维码配置，参考 toJSON 方法的返回值
-  config?: Partial<QR>;
+  qrOptions?: Partial<QR>;
   // 二维码生成后回调，任意配置被修改都会重新生成二维码
   onGenerated?: OnGenerated;
 }
@@ -65,7 +65,7 @@ export interface QROptions {
 ```ts
 const qr = new QR({
   text: '996',
-  config: {
+  qrOptions: {
     // 背景色相关配置
     backgroundColor: {
       color: '#ff0000',
@@ -365,10 +365,10 @@ qr.merge({
 
 #### toJSON
 
-返回二维码配置，可以用于 `merge` 方法，也可以在实例化时传给 `config` 参数。
+返回二维码配置，可以用于 `merge` 方法，也可以在实例化时传给 `qrOptions` 参数。
 
 ```ts
-const config = qr.toJSON();
+const qrOptions = qr.toJSON();
 ```
 
 #### fromJSON
