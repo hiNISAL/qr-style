@@ -1,6 +1,6 @@
 import QRCodeStyling from "qr-code-styling";
 import { ElementColor } from "./classes/Color";
-import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRTypeNumber, QROptions, OnGenerated, Extension, QRMode } from "./type";
+import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from "./type";
 declare class QR {
     private pause;
     image: string;
@@ -21,7 +21,7 @@ declare class QR {
     cornersSquareColor: Partial<ElementColor>;
     text: string;
     errorCorrectionLevel: QRErrorCorrectionLevel;
-    typeNumber: QRTypeNumber;
+    version: QRVersion;
     height: number;
     width: number;
     type: 'svg' | 'canvas';
