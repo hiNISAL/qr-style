@@ -1,7 +1,7 @@
 import type QR from "./qr-style";
 export type QRImageStyle = 'normal' | 'circle' | 'rounded' | 'square';
 export type QRImageShadow = 'none' | 'l1' | 'l2' | 'l3' | 'l4' | 'l5';
-export type QRDotStyle = 'square' | 'dots' | 'classy' | 'classy-rounded' | 'square' | 'extra-rounded';
+export type QRDotStyle = 'square' | 'dots' | 'classy' | 'classy-rounded' | 'rounded' | 'extra-rounded';
 export type QRCornerDotStyle = 'square' | 'dot';
 export type QRCornerSquareStyle = 'square' | 'dot' | 'extra-rounded';
 export type QRErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H';
