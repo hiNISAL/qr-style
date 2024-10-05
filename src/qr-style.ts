@@ -1,10 +1,9 @@
 import { assign, cloneDeep } from 'lodash';
-import QRCodeStyling from "qr-code-styling";
-import { ElementColor } from "./classes/Color";
-import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from "./type";
-import { withProxy } from "./withProxy";
-import { propsToQRCodeStylingOptions } from "./helpers";
-
+import QRCodeStyling from 'qr-code-styling-extra';
+import { ElementColor } from './classes/Color';
+import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from './type';
+import { withProxy } from './withProxy';
+import { propsToQRCodeStylingOptions } from './helpers';
 class QR {
   // -------------------------------------------------------------------------
   private pause = false;
@@ -90,6 +89,8 @@ class QR {
 
   public qrCodeStyling: QRCodeStyling = null as any;
 
+  public utf8Enabled = true;
+
   // -------------------------------------------------------------------------
 
   public onGenerated: OnGenerated = () => {};
@@ -115,8 +116,8 @@ class QR {
 
     this.qrCodeStyling = new QRCodeStyling(options);
 
-    const canvas = this.qrCodeStyling._canvas;
-    const svg = this.qrCodeStyling._svg;
+    const canvas = this.qrCodeStyling._canvas?._canvas;
+    const svg = this.qrCodeStyling._svg?._element as SVGElement;
 
     this.onGenerated({
       qr: this,
@@ -208,16 +209,20 @@ class QR {
   // -------------------------------------------------------------------------
 
   get canvas(): HTMLCanvasElement {
-    return this.qrCodeStyling._canvas as HTMLCanvasElement;
+    return this.qrCodeStyling._canvas?._canvas as HTMLCanvasElement;
   }
 
   get svg(): SVGElement {
-    return this.qrCodeStyling._svg as SVGElement;
+    return this.qrCodeStyling._svg?._element as SVGElement;
   }
 
   // -------------------------------------------------------------------------
   constructor(options: QROptions) {
     this.text = options.text || '';
+
+    if (options.utf8Enabled) {
+      this.utf8Enabled = options.utf8Enabled;
+    }
 
     if (options.qrOptions) {
       this.merge(options.qrOptions);

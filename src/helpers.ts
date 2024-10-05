@@ -1,4 +1,4 @@
-import type { Options } from 'qr-code-styling';
+import type { Options } from 'qr-code-styling-extra';
 import type QR from './qr-style';
 
 export const propsToQRCodeStylingOptions = (qr: QR): Options => {
@@ -7,7 +7,7 @@ export const propsToQRCodeStylingOptions = (qr: QR): Options => {
     height: qr.height,
     type: qr.type,
     margin: qr.margin,
-    data: qr.text,
+    data: qr.utf8Enabled ? unescape(encodeURIComponent(qr.text)) : qr.text,
     image: qr.image,
     qrOptions: {
       errorCorrectionLevel: qr.errorCorrectionLevel,

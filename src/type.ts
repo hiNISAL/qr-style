@@ -31,6 +31,7 @@ export type OnGenerated = (options: {
 export interface QROptions {
   text?: string;
   type?: 'canvas' | 'svg';
+  utf8Enabled?: boolean;
   qrOptions?: Partial<QR>;
   onGenerated?: OnGenerated;
 }
