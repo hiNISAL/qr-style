@@ -57,6 +57,8 @@ export interface QROptions {
   qrOptions?: Partial<QR>;
   // 二维码生成后回调，任意配置被修改都会重新生成二维码
   onGenerated?: OnGenerated;
+  // 是否启用 utf8 编码，默认 true
+  utf8Enabled?: boolean;
 }
 ```
 

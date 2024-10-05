@@ -57,6 +57,8 @@ export interface QROptions {
   qrOptions?: Partial<QR>;
   // QR code generated callback, any configuration changes will trigger re-generation
   onGenerated?: OnGenerated;
+  // enable utf8 encoding, default true
+  utf8Enabled?: boolean;
 }
 ```
 
