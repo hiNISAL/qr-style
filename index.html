@@ -10,10 +10,11 @@
     <div id="app"></div>
     <script type="module" src="/src/qr-style.ts"></script>
     <script type="module">
-      import QRCodeStyling from './src/qr-style.ts';
+      import QRCode from './src/qr-style.ts';
 
-      const qr = new QRCodeStyling({
-        text: 'Hello World',
+      const qr = new QRCode({
+        text: '好滴 abcde 123~',
+        // text: unescape(encodeURIComponent('好滴 abcde 123~')),
         onGenerated: ({ canvas }) => {
           document.body.appendChild(canvas);
         },
