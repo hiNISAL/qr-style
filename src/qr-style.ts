@@ -103,12 +103,17 @@ class QR {
 
     const options = propsToQRCodeStylingOptions(this);
 
-    // const qr = this.qrCodeStyling || new QRCodeStyling(options);
-    if (this.qrCodeStyling) {
-      this.qrCodeStyling.update(options);
-    } else {
-      this.qrCodeStyling = new QRCodeStyling(options);
-    }
+    // fix: update method is not working when toggle gradient color to solid color
+    // so we need to create new instance
+    // -------------------------------------------------------------------------
+    // if (this.qrCodeStyling) {
+    //   this.qrCodeStyling.update(options);
+    // } else {
+    //   this.qrCodeStyling = new QRCodeStyling(options);
+    // }
+    // -------------------------------------------------------------------------
+
+    this.qrCodeStyling = new QRCodeStyling(options);
 
     const canvas = this.qrCodeStyling._canvas;
     const svg = this.qrCodeStyling._svg;
