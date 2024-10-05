@@ -1,6 +1,6 @@
-import QRCodeStyling from "qr-code-styling";
-import { ElementColor } from "./classes/Color";
-import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from "./type";
+import QRCodeStyling from 'qr-code-styling-extra';
+import { ElementColor } from './classes/Color';
+import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from './type';
 declare class QR {
     private pause;
     image: string;
@@ -28,9 +28,10 @@ declare class QR {
     mode: QRMode;
     margin: number;
     qrCodeStyling: QRCodeStyling;
+    utf8Enabled: boolean;
     onGenerated: OnGenerated;
     generate(): void;
-    getRawData(extension?: Extension): Promise<Blob | null>;
+    getRawData(extension?: Extension): Promise<any>;
     saveAs(filename: string, extension?: Extension): Promise<void>;
     merge(_options: Partial<QR>): QR;
     fromJSON(options: Partial<QR>): void;
