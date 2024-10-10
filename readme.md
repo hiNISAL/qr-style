@@ -283,6 +283,15 @@ qr.backgroundColor.color = '#ff0000';
 - square
 - extra-rounded
 
+以下可选值只在canvas生效：
+- rhombus
+- thin-rhombus
+- thin-dots
+- this-square
+- square-rounded
+
+部份码点样式会导致扫码困难，主要是难以用码眼定位二维码，可以结合码眼样式一起调整。
+
 ```ts
 qr.dotsStyle = 'classy';
 ```
@@ -498,9 +507,9 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 
 ## TODOs
 
+- [√] 更多码点样式
 - [ ] 背景支持图片
 - [ ] 更多码眼样式
-- [ ] 更多码点样式
 - [ ] 码点支持图片
 - [ ] 支持中间图尺寸
 - [ ] 支持中间其他样式（投影、裁剪样式、图片位置等）
@@ -512,4 +521,4 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 
 ## 鸣谢
 
-本项目基于 [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) 二次开发，后续会扩展 qr-code-styling ，提供更多码点、码眼样式、背景图片等能力。
+项目基于 [qr-code-styling](https://github.com/kozakdenys/qr-code-styling)，扩展项目[qr-code-styling-extra](https://github.com/hiNISAL/qr-code-styling)。

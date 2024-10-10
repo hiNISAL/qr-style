@@ -287,6 +287,16 @@ QR code dot style, optional values:
 - square
 - extra-rounded
 
+The following optional values only work with canvas:
+- rhombus
+- thin-rhombus
+- thin-dots
+- this-square
+- square-rounded
+
+Some dot styles may make scanning difficult, mainly due to challenges in locating the QR code using the finder patterns.
+It's recommended to adjust these in combination with the corner square style.
+
 ```ts
 qr.dotsStyle = 'classy';
 ```
@@ -496,9 +506,9 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 
 ## TODOs
 
+- [√] More dot styles
 - [ ] Background support image
 - [ ] More eye styles
-- [ ] More dot styles
 - [ ] Dot support image
 - [ ] Support middle image size
 - [ ] Support middle other styles (projection, clipping style, image position, etc.)
@@ -510,4 +520,4 @@ qr.backgroundColor.gradient.gradientDirection = 'toRight';
 
 ## Thanks
 
-This project is based on [qr-code-styling](https://github.com/kozakdenys/qr-code-styling).
+project is based on [qr-code-styling](https://github.com/kozakdenys/qr-code-styling), and Extended the project to [qr-code-styling-extra](https://github.com/hiNISAL/qr-code-styling).
