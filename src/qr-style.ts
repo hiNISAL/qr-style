@@ -4,6 +4,7 @@ import { ElementColor } from './classes/Color';
 import { QRImageStyle, QRImageShadow, QRDotStyle, QRCornerDotStyle, QRCornerSquareStyle, QRErrorCorrectionLevel, QRVersion, QROptions, OnGenerated, Extension, QRMode } from './type';
 import { withProxy } from './withProxy';
 import { propsToQRCodeStylingOptions } from './helpers';
+
 class QR {
   // -------------------------------------------------------------------------
   private pause = false;
@@ -42,21 +43,21 @@ class QR {
 
   // -------------------------------------------------------------------------
   // dots
-  public dotsStyle: QRDotStyle = 'square';
+  public dotsStyle: QRDotStyle = 'none';
 
-  public dotsColor: Partial<ElementColor> = new ElementColor();
-
-  // -------------------------------------------------------------------------
-  // corners dots
-  public cornersDotStyle: QRCornerDotStyle = 'square';
-
-  public cornersDotColor: Partial<ElementColor> = new ElementColor({
-    color: '#000000',
+  public dotsColor: Partial<ElementColor> = new ElementColor({
+    color: '#000000'
   });
 
   // -------------------------------------------------------------------------
+  // corners dots
+  public cornersDotStyle: QRCornerDotStyle = 'none';
+
+  public cornersDotColor: Partial<ElementColor> = new ElementColor();
+
+  // -------------------------------------------------------------------------
   // corners square
-  public cornersSquareStyle: QRCornerSquareStyle = 'square';
+  public cornersSquareStyle: QRCornerSquareStyle = 'none';
 
   public cornersSquareColor: Partial<ElementColor> = new ElementColor();
 
@@ -90,6 +91,8 @@ class QR {
   public qrCodeStyling: QRCodeStyling = null as any;
 
   public utf8Enabled = true;
+
+  public canvasInstance: HTMLCanvasElement | null = null;
 
   // -------------------------------------------------------------------------
 
@@ -222,6 +225,10 @@ class QR {
 
     if (options.utf8Enabled) {
       this.utf8Enabled = options.utf8Enabled;
+    }
+
+    if (options.canvas) {
+      this.canvasInstance = options.canvas;
     }
 
     if (options.qrOptions) {

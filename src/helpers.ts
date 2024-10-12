@@ -1,5 +1,29 @@
-import type { Options } from 'qr-code-styling-extra';
+import type { Options, CornerDotType, CornerSquareType, DotType } from 'qr-code-styling-extra';
 import type QR from './qr-style';
+import type { ElementColor } from './classes/Color';
+import type { QRCornerDotStyle, QRCornerSquareStyle } from './type';
+
+const noneToUndefined = <T>(value: QRCornerDotStyle | QRCornerSquareStyle | DotType): T | undefined => {
+  if (value === '' || value === 'none') {
+    return undefined;
+  }
+
+  return value as T;
+};
+
+const withColor = (
+  key: 'backgroundOptions' | 'cornersDotOptions' | 'cornersSquareOptions' | 'dotsOptions',
+  options: Options,
+  color: ElementColor,
+) => {
+  if (color.colorType === 'solid') {
+    if (color.color) {
+      options[key]!.color = color.color;
+    }
+  } else if (color.colorType === 'gradient') {
+    options[key]!.gradient = color.gradient.toQRCodeStylingGradientOptions();
+  }
+};
 
 export const propsToQRCodeStylingOptions = (qr: QR): Options => {
   const options: Options = {
@@ -9,19 +33,21 @@ export const propsToQRCodeStylingOptions = (qr: QR): Options => {
     margin: qr.margin,
     data: qr.utf8Enabled ? unescape(encodeURIComponent(qr.text)) : qr.text,
     image: qr.image,
+    updateAtCreatedCanvas: qr.canvasInstance ? true : false,
+    canvas: qr.canvasInstance || undefined,
     qrOptions: {
       errorCorrectionLevel: qr.errorCorrectionLevel,
       typeNumber: qr.version,
     },
     dotsOptions: {
-      type: qr.dotsStyle,
+      type: noneToUndefined<DotType>(qr.dotsStyle),
     },
     backgroundOptions: {},
     cornersDotOptions: {
-      type: qr.cornersDotStyle,
+      type: noneToUndefined<CornerDotType>(qr.cornersDotStyle),
     },
     cornersSquareOptions: {
-      type: qr.cornersSquareStyle,
+      type: noneToUndefined<CornerSquareType>(qr.cornersSquareStyle),
     },
     imageOptions: {
       hideBackgroundDots: qr.hideBehindImageDots,
@@ -32,41 +58,10 @@ export const propsToQRCodeStylingOptions = (qr: QR): Options => {
     },
   };
 
-  if (qr.backgroundColor.colorType === 'solid') {
-    options.backgroundOptions!.color = qr.backgroundColor.color;
-  } else if (qr.backgroundColor.colorType === 'gradient') {
-    options.backgroundOptions!.gradient = qr!
-      .backgroundColor!
-      .gradient!
-      .toQRCodeStylingGradientOptions();
-  }
-
-  if (qr.cornersDotColor.colorType === 'solid') {
-    options.cornersDotOptions!.color = qr.cornersDotColor.color;
-  } else if (qr.cornersDotColor.colorType === 'gradient') {
-    options.cornersDotOptions!.gradient = qr!
-      .cornersDotColor!
-      .gradient!
-      .toQRCodeStylingGradientOptions();
-  }
-
-  if (qr.cornersSquareColor.colorType === 'solid') {
-    options.cornersSquareOptions!.color = qr.cornersSquareColor.color;
-  } else if (qr.cornersSquareColor.colorType === 'gradient') {
-    options.cornersSquareOptions!.gradient = qr!
-      .cornersSquareColor!
-      .gradient!
-      .toQRCodeStylingGradientOptions();
-  }
-
-  if (qr.dotsColor.colorType === 'solid') {
-    options.dotsOptions!.color = qr.dotsColor.color;
-  } else if (qr.dotsColor.colorType === 'gradient') {
-    options.dotsOptions!.gradient = qr!
-      .dotsColor!
-      .gradient!
-      .toQRCodeStylingGradientOptions();
-  }
+  withColor('backgroundOptions', options, qr.backgroundColor as ElementColor);
+  withColor('cornersDotOptions', options, qr.cornersDotColor as ElementColor);
+  withColor('cornersSquareOptions', options, qr.cornersSquareColor as ElementColor);
+  withColor('dotsOptions', options, qr.dotsColor as ElementColor);
 
   return options;
 };

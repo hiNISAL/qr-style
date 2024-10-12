@@ -1,5 +1,5 @@
 import { assign } from 'lodash';
-import type { Gradient as QRCodeStylingGradient } from 'qr-code-styling';
+import type { Gradient as QRCodeStylingGradient } from 'qr-code-styling-extra';
 
 // -------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ interface ElementColorOptions {
 class ElementColor {
   public colorType: ColorType = 'solid';
 
-  public color: string = '#000000';
+  public color: string = '';
 
   public gradient: Gradient = new Gradient();
 
@@ -79,7 +79,7 @@ class ElementColor {
   public imageOpacity: number = 0.5;
 
   constructor(options: ElementColorOptions = {}) {
-    this.color = options.color || '#000000';
+    this.color = options.color || '';
   }
 
   merge(options: Partial<ElementColor>): void {

@@ -7,11 +7,11 @@ export type QRImageStyle = 'normal' | 'circle' | 'rounded' | 'square';
 
 export type QRImageShadow = 'none' | 'l1' | 'l2' | 'l3' | 'l4' | 'l5';
 
-export type QRDotStyle = DotType;
+export type QRDotStyle = '' | 'none' | DotType;
 
-export  type QRCornerDotStyle = 'square' | 'dot';
+export  type QRCornerDotStyle = '' | 'none' | 'square' | 'dot';
 
-export type QRCornerSquareStyle = 'square' | 'dot' | 'extra-rounded';
+export type QRCornerSquareStyle = '' | 'none' | 'square' | 'dot' | 'extra-rounded';
 
 export type QRErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H';
 
@@ -35,4 +35,6 @@ export interface QROptions {
   utf8Enabled?: boolean;
   qrOptions?: Partial<QR>;
   onGenerated?: OnGenerated;
+  canvas?: HTMLCanvasElement;
+  updateInCreatedCanvas?: boolean;
 }
