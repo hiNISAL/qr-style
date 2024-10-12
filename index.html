@@ -8,6 +8,9 @@
   </head>
   <body>
     <div id="app"></div>
+
+    <canvas id="canvas"></canvas>
+
     <script type="module" src="/src/qr-style.ts"></script>
     <script type="module">
       import QRCode from './src/qr-style.ts';
@@ -15,9 +18,13 @@
       const qr = new QRCode({
         text: '好滴 abcde 123~',
         // text: unescape(encodeURIComponent('好滴 abcde 123~')),
-        onGenerated: ({ canvas }) => {
-          document.body.appendChild(canvas);
+        qrOptions: {
+          dotsStyle: 'thin-square',
         },
+        onGenerated: ({ canvas }) => {
+          // document.body.appendChild(canvas);
+        },
+        canvas: document.getElementById('canvas'),
       });
 
       window.qr = qr;
