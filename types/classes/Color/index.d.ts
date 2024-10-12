@@ -1,4 +1,4 @@
-import type { Gradient as QRCodeStylingGradient } from 'qr-code-styling';
+import type { Gradient as QRCodeStylingGradient } from 'qr-code-styling-extra';
 type GradientDirection = 'toRight' | 'toLeft' | 'toTop' | 'toBottom' | 'toTopRight' | 'toTopLeft' | 'toBottomRight' | 'toBottomLeft';
 type GradientType = 'linear' | 'radial';
 declare class Gradient {

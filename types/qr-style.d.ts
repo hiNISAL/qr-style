@@ -29,6 +29,7 @@ declare class QR {
     margin: number;
     qrCodeStyling: QRCodeStyling;
     utf8Enabled: boolean;
+    canvasInstance: HTMLCanvasElement | null;
     onGenerated: OnGenerated;
     generate(): void;
     getRawData(extension?: Extension): Promise<any>;
