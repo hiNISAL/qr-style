@@ -17,12 +17,16 @@ import QR from 'qr-style';
 
 const qr = new QR({
   text: '996',
+  canvas: document.createElement('canvas'),
 });
 
 document.body.appendChild(qr.canvas);
 
 qr.text = 'hi~';
-document.body.appendChild(qr.canvas);
+
+setTimeout(() => {
+  qr.text = 'hello';
+}, 1000);
 
 // -------------------------------------------------------------------------
 
@@ -59,6 +63,8 @@ export interface QROptions {
   onGenerated?: OnGenerated;
   // enable utf8 encoding, default true
   utf8Enabled?: boolean;
+  // QR code generated and updated drawing on this canvas element
+  canvas?: HTMLCanvasElement;
 }
 ```
 
@@ -79,6 +85,16 @@ const qr = new QR({
     document.body.appendChild(canvas);
   },
 });
+
+// -------------------------------------------------------------------------
+
+const qr = new QR({
+  text: '996',
+  canvas: document.getElementById('canvas'),
+});
+
+// QR code generated and updated drawing on this canvas element
+qr.text = 'hi~';
 ```
 
 ### Properties

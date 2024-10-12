@@ -17,12 +17,16 @@ import QR from 'qr-style';
 
 const qr = new QR({
   text: '996',
+  canvas: document.createElement('canvas'),
 });
 
 document.body.appendChild(qr.canvas);
 
 qr.text = 'hi~';
-document.body.appendChild(qr.canvas);
+
+setTimeout(() => {
+  qr.text = 'hello';
+}, 1000);
 
 // -------------------------------------------------------------------------
 
@@ -59,6 +63,8 @@ export interface QROptions {
   onGenerated?: OnGenerated;
   // 是否启用 utf8 编码，默认 true
   utf8Enabled?: boolean;
+  // 二维码生成以及更新后绘制在这个canvas上
+  canvas?: HTMLCanvasElement;
 }
 ```
 
@@ -79,6 +85,16 @@ const qr = new QR({
     document.body.appendChild(canvas);
   },
 });
+
+// -------------------------------------------------------------------------
+
+const qr = new QR({
+  text: '996',
+  canvas: document.getElementById('canvas'),
+});
+
+// 二维码生成后会更新到传入的canvas上
+qr.text = 'hi~';
 ```
 
 ### 属性
