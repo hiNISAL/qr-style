@@ -186,6 +186,15 @@ qr.mode = 'Numeric';
 qr.margin = 10;
 ```
 
+#### marginDotSize
+
+二维码边距，表示 n * 单个码点宽度的边距，优先级高于margin。
+
+```ts
+// 2 * dot size
+qr.marginDotSize = 2;
+```
+
 #### image 中间图相关
 
 ##### image
