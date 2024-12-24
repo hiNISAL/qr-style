@@ -27,6 +27,7 @@ declare class QR {
     type: 'svg' | 'canvas';
     mode: QRMode;
     margin: number;
+    marginDotSize: number;
     qrCodeStyling: QRCodeStyling;
     utf8Enabled: boolean;
     canvasInstance: HTMLCanvasElement | null;

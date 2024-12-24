@@ -35,6 +35,7 @@ export const propsToQRCodeStylingOptions = (qr: QR): Options => {
     image: qr.image,
     updateAtCreatedCanvas: qr.canvasInstance ? true : false,
     canvas: qr.canvasInstance || undefined,
+    marginDotSize: qr.marginDotSize,
     qrOptions: {
       errorCorrectionLevel: qr.errorCorrectionLevel,
       typeNumber: qr.version,

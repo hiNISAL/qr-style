@@ -86,6 +86,8 @@ class QR {
 
   public margin: number = 0;
 
+  public marginDotSize: number = 0;
+
   // -------------------------------------------------------------------------
 
   public qrCodeStyling: QRCodeStyling = null as any;
@@ -187,6 +189,7 @@ class QR {
       cornersDotColor: this.cornersDotColor,
       cornersSquareStyle: this.cornersSquareStyle,
       cornersSquareColor: this.cornersSquareColor,
+      marginDotSize: this.marginDotSize,
       text: this.text,
       errorCorrectionLevel: this.errorCorrectionLevel,
       version: this.version,

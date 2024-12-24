@@ -5,6 +5,11 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <style>
+      body {
+        background-color: #000;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
@@ -20,6 +25,10 @@
         // text: unescape(encodeURIComponent('好滴 abcde 123~')),
         qrOptions: {
           dotsStyle: 'thin-square',
+          // margin: 20,
+          marginDotSize: 4,
+          width: 800,
+          height: 800,
         },
         onGenerated: ({ canvas }) => {
           // document.body.appendChild(canvas);
